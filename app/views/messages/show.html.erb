@@ -5,7 +5,7 @@
 <h3>Comments:</h3>
 <%=render @message.comments%>
 <h3>Reply to Messages:</h3>
-<%= render 'comments/form'%>
+<%= render 'comments/form', comment:  @message.comments.build, url: message_comments_path(@message)%>
 
 
 <br>

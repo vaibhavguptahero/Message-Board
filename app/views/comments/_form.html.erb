@@ -1,5 +1,5 @@
 <div class="container">
-    <%= form_with model: @message.comments.build,url: message_comments_path(@message) do |form|%>
+    <%= form_with model: comment, url: url do |form|%>
     <div class="mb-3">
         <%=form.label :content, class:"form-label"%>
         <%=form.text_area :content, class:'form-control'%>

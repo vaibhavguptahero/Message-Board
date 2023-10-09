@@ -1,0 +1,14 @@
+<h1><%=@message.title%></h1>
+<br>
+<h4><%=@message.description%></h4>
+<br>
+<h3>Comments:</h3>
+<%=render @message.comments%>
+<h3>Reply to Messages:</h3>
+<%= render 'comments/form'%>
+
+
+<br>
+<%=link_to 'Edit', edit_message_path(@message), class: "btn btn-dark"%>
+<%=link_to 'Delete', message_path(@message), data: {turbo_method: :delete, turbo_confirm: "Are you sure to delete this message"}, class: "btn btn-danger"%>
+<%=link_to 'Back', :back, class: "btn btn-info"%>

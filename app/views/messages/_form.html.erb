@@ -1,0 +1,16 @@
+<div class="container">
+    <%= form_with model: @message do |form|%>
+    <div class="mb-3">
+        <%=form.label :title, class:"form-label"%>
+        <%=form.text_field :title, class:'form-control'%>
+    </div>
+    <div class="mb-3">
+        <%=form.label :description, class:"form-label"%>
+        <%=form.text_area :description, class:'form-control'%>
+    </div>
+    <div class="mb-3">
+        <%=form.submit class: "btn btn-primary"%>
+        <%=link_to "Back", :back, class: "btn btn-warning"%>
+    </div>
+    <%end%>
+</div>

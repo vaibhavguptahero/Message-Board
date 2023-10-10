@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
-    before_action :message_params
+    before_action :find_message
     before_action :find_comment, only: [:show, :edit,:update, :destroy]
+    before_action :authenticate_user!
     def create
        
         @comment= @message.comments.create(comment_params)
@@ -26,6 +27,16 @@ class CommentsController < ApplicationController
         end
     end
 
+    def destroy
+        if @comment.destroy
+            redirect_to message_path(@message)
+            flash[:notice]= "Successfully Deleted Comment"
+           else
+            flash[:error]= "Comment not deleted"
+           end
+    end
+
+
 
     private
 
@@ -33,7 +44,7 @@ class CommentsController < ApplicationController
         params.require(:comment).permit(:content)
     end
 
-    def message_params
+    def find_message
         @message=Message.find(params[:message_id])
     end
 

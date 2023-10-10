@@ -1,5 +1,13 @@
 <%=link_to 'New message', new_message_path, class:"btn btn-info"%>
+<div class="row">
 <%@messages.each do |message|%>
-    <h2><%=message.title%></h2>
-    <%=link_to "View Message", message_path(message), class: "btn btn-success"%>
+<div class="card  border-3 bg-dark mt-5 col-4 mx-3" style="width: 21rem;border-bottom-color:#80ff52;">
+    <h5 class="card-title text-light gw-bold mx-3 mt-2"><%=message.title%></h5>
+    <div class="card-body ">
+        <%=link_to "View Message", message_path(message), class: "btn btn-ouline-primary bg-light"%>
+    </div>
+</div>
 <%end%>
+</div>
+
+
